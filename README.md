@@ -1,5 +1,5 @@
-# PeltierStage   [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-A custom made AFM table with a Peltier element for heating/cooling.
+# AutoQCLPower   [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
+Motorized power adjuster for the QCL laser.
 
 
 
