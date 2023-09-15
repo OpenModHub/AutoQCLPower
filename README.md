@@ -1,7 +1,7 @@
 # AutoQCLPower   [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 Motorized power adjuster for the QCL laser.
 
-[![Exploding view](videos/exploding_view.avi)]
+[![Exploding view](https://github.com/borondics/AutoQCLPower/blob/master/videos/exploding_view.mp4)]
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
