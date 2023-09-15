@@ -3,6 +3,12 @@ Motorized power adjuster for the QCL laser.
 
 <video src="videos/exploding_view.mp4"></video>
 
+
+
+https://github.com/borondics/AutoQCLPower/assets/6304794/b34c580e-ef17-446e-8e96-88b1b9dd2d84
+
+
+
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
 
