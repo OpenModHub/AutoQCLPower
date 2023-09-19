@@ -9,6 +9,17 @@ This mod uses some of the components that are already in the instrument, e.g. th
 - [Cage rods](#)
 - [SMC1 pipe](#)
 
+## Control software
+
+The Elliptec components can be controlled with the software provided by Thorlabs.
+
+TODO: We will soon provide a cleaner, more simple interface.
+
+## Warning
+
+Pay attention to configure the "zero" rotation angle and block the laser before large wavelength jumps as the power can inccrease sharply. 
+
+### License
 
 This work is licensed under a
 [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License][cc-by-nc-sa].
