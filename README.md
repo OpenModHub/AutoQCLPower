@@ -6,8 +6,8 @@ This mod uses some of the components that are already in the instrument, e.g. th
 ## Parts list
 - [Thorlabs ELL14K - Rotation Mount Bundle: ELL14 Mount, Interface Board, Power Supply, Cables](https://www.thorlabs.com/thorproduct.cfm?partnumber=ELL14K)
 - [CP36 - 30 mm Cage Plate](#)([https://www.thorlabs.com/thorproduct.cfm?partnumber=ELL14K](https://www.thorlabs.com/thorproduct.cfm?partnumber=CP36))
-- [ER05-P4 cage rods]((https://www.thorlabs.com/thorproduct.cfm?partnumber=ER05-P4))
-- [SM1L06 lens tube]((https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1L05))
+- [ER05-P4 cage rods](https://www.thorlabs.com/thorproduct.cfm?partnumber=ER05-P4)
+- [SM1L06 lens tube](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1L05)
 - [SR05 Assembly rods](https://www.thorlabs.com/thorproduct.cfm?partnumber=SR05-P4)
 
 ## Control software
