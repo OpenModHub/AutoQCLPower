@@ -1,6 +1,13 @@
 # AutoQCLPower   [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
 Motorized power adjuster for the QCL laser.
 
+This mod uses some of the components that are already in the instrument, e.g. the rotating polarizer. Since the laser is polarized, we need a rotating linear polarizer to decrease the power and then another, fixed linear polarizer to reset the polarization to the tip axis. The manual rotation mount needs to be replaced with the assembly shown in the CAD folder.
+
+## Parts list
+- [Thorlabs ELL14K - Rotation Mount Bundle: ELL14 Mount, Interface Board, Power Supply, Cables](https://www.thorlabs.com/thorproduct.cfm?partnumber=ELL14K)
+- [Cage system mount](#)
+- [Cage rods](#)
+- [SMC1 pipe](#)
 
 
 This work is licensed under a
