@@ -15,7 +15,7 @@ This mod uses some of the components that are already in the instrument, e.g. th
 
 ## Control software
 
-The Elliptec components can be controlled with the software provided by Thorlabs.
+The Elliptec components can be controlled with the [software provided by Thorlabs](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=ELL).
 
 TODO: We will soon provide a cleaner, more simple interface.
 
