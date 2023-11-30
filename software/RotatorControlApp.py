@@ -27,7 +27,7 @@ except:
     offline_mode = True
 
 # UI import
-ui_file_name = 'RotatorApp_nolaser.ui'
+ui_file_name = 'software/RotatorControlApp.ui'
 current_folder = os.getcwd()
 ui_file_path = os.path.join(current_folder,ui_file_name)
 
