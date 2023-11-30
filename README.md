@@ -15,7 +15,7 @@ This mod uses some of the components that are already in the instrument, e.g. th
 
 The final assembly looks like this:
 
-![cad_design](/images/fullassembly.png)
+![cad_design](/images/fulassembly.png)
 
 ## Control software
 
