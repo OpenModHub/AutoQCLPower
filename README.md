@@ -1,5 +1,5 @@
 # AutoQCLPower   [![CC BY-NC-SA 4.0][cc-by-nc-sa-shield]][cc-by-nc-sa]
-Motorized power adjuster for the QCL laser.
+Motorized power attenuator for QCL laser.
 
 This mod uses some of the components that are already in the instrument, e.g. the stationary and the rotating polarizers. Since the laser is polarized, we need a rotating linear polarizer to decrease the power and then another, fixed linear polarizer to reset the polarization to the tip axis. The manual rotation mount needs to be replaced with the assembly shown in the CAD folder.
 
@@ -13,15 +13,32 @@ This mod uses some of the components that are already in the instrument, e.g. th
 - [SM1L06 lens tube](https://www.thorlabs.com/thorproduct.cfm?partnumber=SM1L05)
 - [SR05 Assembly rods](https://www.thorlabs.com/thorproduct.cfm?partnumber=SR05-P4)
 
+The final assembly looks like this:
+
+![cad_design](/images/exploded_view.png)
+
 ## Control software
 
 The Elliptec components can be controlled with the [software provided by Thorlabs](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=ELL).
 
-TODO: We will soon provide a cleaner, more simple interface.
+OR
 
-## Warning
+You can use our custom Python application (software/RotatorControlApp.py) that can control the rotator and use the power meter which is built in neaSNOM instrument to autoset the desired power level.
 
-Pay attention to setup the initial cross-polarized rotation configuration and block the laser before large-range wavelength tuning as the power can increase sharply. 
+## How to use
+
+1. Only use the attenuator
+
+The software starts without connecting to the SNOM server machine. In this mode, you can control the rotating polarizer in the attenuator and monitor the power level from neaSCAN.
+
+2. Use the attenuator with the SNOM power meter
+
+If you want to use the automatic power settings you have to connect to the neaSNOM server machine. When you are connected you can see the power readings and use the automatic power adjustement.
+## ⚠️Warning⚠️
+
+1. Pay attention to setup the initial cross-polarized rotation configuration and block the laser before large-range wavelength tuning as the power can increase sharply.
+2. Make sure to change:
+   - **path_to_dll**, **fingerprint**, **host** variables in **connect_to_neasnom** function
 
 ### License
 
