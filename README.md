@@ -17,6 +17,8 @@ The final assembly looks like this:
 
 ![cad_design](/images/fulassembly.png)
 
+STEP file showing the full assembly is available in the CAD folder.
+
 ## Control software
 
 The Elliptec components can be controlled with the [software provided by Thorlabs](https://www.thorlabs.com/software_pages/ViewSoftwarePage.cfm?Code=ELL).
