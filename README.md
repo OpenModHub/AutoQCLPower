@@ -15,7 +15,7 @@ This mod uses some of the components that are already in the instrument, e.g. th
 
 The final assembly looks like this:
 
-![cad_design](/images/exploded_view.png)
+![cad_design](/images/fullassembly.png)
 
 ## Control software
 
@@ -33,12 +33,17 @@ The software starts without connecting to the SNOM server machine. In this mode,
 
 2. Use the attenuator with the SNOM power meter
 
-If you want to use the automatic power settings you have to connect to the neaSNOM server machine. When you are connected you can see the power readings and use the automatic power adjustement.
+If you want to use the automatic power settings you have to connect to the neaSNOM server machine. When you are connected you can see the power readings and use the automatic power adjustment.
 ## ⚠️Warning⚠️
 
-1. Pay attention to setup the initial cross-polarized rotation configuration and block the laser before large-range wavelength tuning as the power can increase sharply.
+1. Pay attention to setting up the initial cross-polarized rotation configuration and block the laser before large-range wavelength tuning as the power can increase sharply.
 2. Make sure to change:
    - **path_to_dll**, **fingerprint**, **host** variables in **connect_to_neasnom** function
+3. Check the requirements file for the module versions
+4. The software was tested with:
+   - neaSCAN 2.2.10875
+   - neaServer 2.1.11062.0
+   - Python 3.9.10 64 bit
 
 ### License
 
