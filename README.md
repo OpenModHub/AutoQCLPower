@@ -15,7 +15,7 @@ This mod uses some of the components that are already in the instrument, e.g. th
 
 The final assembly looks like this:
 
-![cad_design](/images/fulassembly.png)
+![assembly](/images/fulassembly.png)
 
 STEP file showing the full assembly is available in the CAD folder.
 
@@ -26,6 +26,7 @@ The Elliptec components can be controlled with the [software provided by Thorlab
 OR
 
 You can use our custom Python application (software/RotatorControlApp.py) that can control the rotator and use the power meter which is built in neaSNOM instrument to autoset the desired power level.
+![app](/images/app.png)
 
 ## How to use
 
