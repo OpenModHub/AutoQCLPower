@@ -22,6 +22,7 @@ import os
 # import neaSDK
 try:
     import nea_tools
+    offline_mode = False
 except:
     print("nea_tools module not found, working in offline mode")
     offline_mode = True
@@ -212,10 +213,10 @@ class RotatorApp(uiclass, baseclass):
         self.timer.start(2000)
 
     def proportionalStep(self):
-        P = 10
+        P = 5
         angle_step = self.setpoint_error*P
-        if angle_step > 20:
-            angle_step = 20
+        if angle_step > 10:
+            angle_step = 10
         self.ro.shift_angle(angle_step)
         self.timerPstep.start()
 
