@@ -18,6 +18,7 @@ import elliptec
 from time import sleep
 import asyncio
 import os
+from qt_material import apply_stylesheet
 
 # import neaSDK
 try:
@@ -28,7 +29,7 @@ except:
     offline_mode = True
 
 # UI import
-ui_file_name = 'software/RotatorControlApp.ui'
+ui_file_name = 'RotatorControlApp.ui'
 current_folder = os.getcwd()
 ui_file_path = os.path.join(current_folder,ui_file_name)
 
@@ -48,6 +49,9 @@ class RotatorApp(uiclass, baseclass):
         self.sensor_value = 0
         self.setpoint_error = 0
         self.dt_sensor = 1000
+        
+        # setup stylesheet
+        apply_stylesheet(app, theme='light_blue.xml', invert_secondary=True)
 
         #set and start a timer for sensor reading
         self.timer=QTimer(self)
@@ -67,7 +71,7 @@ class RotatorApp(uiclass, baseclass):
         self.JogFFWPushButton.clicked.connect(lambda: self.jogging("forward",3))
         self.JogBWPushButton.clicked.connect(lambda: self.jogging("backward",1))
         self.JogFBWPushButton.clicked.connect(lambda: self.jogging("backward",3))
-        self.GoHomePushButton.clicked.connect(lambda: self.ro.home())
+        self.GoHomePushButton.clicked.connect(self.JustGoHome)
         self.JumpPushButton.clicked.connect(self.jumptoangle)
         self.SetHomeOffsetPushButton.clicked.connect(self.setCurrentAsHome)
         self.AutoFindPushButton.clicked.connect(self.find_power_minimum)
@@ -170,6 +174,11 @@ class RotatorApp(uiclass, baseclass):
         alpha = self.GoToAngleSpinBox.value()
         self.ro.set_angle(alpha)
         self.statusbar.showMessage(f"Moved to: {self.ro.get_angle()}")
+        self.lcdNumber_2.display(self.ro.get_angle())
+
+    def JustGoHome(self):
+        self.ro.home()
+        self.statusbar.showMessage(f"Moved HOME to: {self.ro.get_angle()}")
         self.lcdNumber_2.display(self.ro.get_angle())
 
     def setCurrentAsHome(self):
