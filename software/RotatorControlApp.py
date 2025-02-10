@@ -7,6 +7,7 @@ Standalone app
 
 #For the GUI
 import sys
+import yaml
 from PySide6 import QtWidgets
 from PySide6 import QtCore, QtGui
 from PySide6.QtCore import QTimer
@@ -43,6 +44,7 @@ class RotatorApp(uiclass, baseclass):
         self.setupUi(self)
 
         self.connected = False
+        self.config = None
 
         self.SearchCOMports()
 
@@ -113,11 +115,34 @@ class RotatorApp(uiclass, baseclass):
                     self.SearchCOMports()
                 elif button == QMessageBox.Cancel:
                     self.close()
+                    
+    def check_config_file(self):   # load config
+        with open('config.yaml', 'r') as file:
+            self.config = yaml.safe_load(file)
+            if (self.config['fingerprint'] == 'CHANGEMEE') or (self.config['path_to_dll'] == r"CHANGEMEE"):
+                msg = QMessageBox()
+                msg.setWindowTitle("Configuration missing")
+                msg.setText("You have to set up neaSNOM configuration before use")
+                msg.setIcon(QMessageBox.Critical)
+                msg.setStandardButtons(QMessageBox.Ok|QMessageBox.Cancel)
+                buttonConnect = msg.button(QMessageBox.Ok)
+                buttonConnect.setText('Ok')
+                msg.setInformativeText("Click 'Ok' and set the parameters in the config.yaml file or click 'Cancel' to continue in offline mode")
+                button = msg.exec()
+                if button == QMessageBox.Ok:
+                    sys.exec()
+                elif button == QMessageBox.Cancel:
+                    self.offline_mode = True
 
     def connect_to_neasnom(self):
-        path_to_dll = r"\\nea-server\updates\Application Files\neaSCAN_2_1_10694_0"
-        fingerprint = 'af3b0d0f-cdbb-4555-9bdb-6fe200b64b51'
+        if "nea_tools" not in sys.modules:
+            return
+
+        self.path_to_dll = ''# yaml.load('config.yaml')
+        path_to_dll = self.config['path_to_dll']
+        fingerprint = self.config['fingerprint']
         host = 'nea-server'
+        
         if self.connected:
             print('\nDisconnecting from neaServer!')
             nea_tools.disconnect()

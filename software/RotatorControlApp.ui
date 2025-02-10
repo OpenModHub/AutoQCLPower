@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>621</width>
-    <height>516</height>
+    <height>523</height>
    </rect>
   </property>
   <property name="font">
@@ -174,6 +174,9 @@
            </item>
            <item>
             <widget class="QPushButton" name="connectSNOM">
+             <property name="enabled">
+              <bool>false</bool>
+             </property>
              <property name="minimumSize">
               <size>
                <width>0</width>
@@ -184,6 +187,9 @@
               <font>
                <pointsize>10</pointsize>
               </font>
+             </property>
+             <property name="toolTip">
+              <string>Temporarily disabled</string>
              </property>
              <property name="text">
               <string>Connect / Disconnect neaSNOM</string>
@@ -209,15 +215,34 @@
           </property>
           <layout class="QVBoxLayout" name="verticalLayout">
            <item>
-            <widget class="QLabel" name="HomeOffsetLabel">
-             <property name="font">
-              <font>
-               <pointsize>14</pointsize>
-              </font>
+            <widget class="QFrame" name="frame_8">
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
              </property>
-             <property name="text">
-              <string>Attenuator</string>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
              </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_9">
+              <item>
+               <widget class="QLabel" name="HomeOffsetLabel">
+                <property name="font">
+                 <font>
+                  <pointsize>14</pointsize>
+                 </font>
+                </property>
+                <property name="text">
+                 <string>Attenuator</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="pushButton">
+                <property name="text">
+                 <string>ABORT ALL!</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
            <item>
@@ -468,6 +493,9 @@
                 <property name="decimals">
                  <number>3</number>
                 </property>
+                <property name="minimum">
+                 <double>-180.000000000000000</double>
+                </property>
                 <property name="maximum">
                  <double>180.000000000000000</double>
                 </property>
@@ -511,6 +539,7 @@
              <property name="font">
               <font>
                <pointsize>12</pointsize>
+               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
