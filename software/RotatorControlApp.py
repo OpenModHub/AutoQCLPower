@@ -137,6 +137,8 @@ class RotatorApp(uiclass, baseclass):
 
         self.connected = False
         self.config = None
+        self.settings = None
+        self.read_settings()
 
         self.FindRotator()
         self.powersensor = ThorlabsPM102A()
@@ -147,7 +149,8 @@ class RotatorApp(uiclass, baseclass):
         self.worker_thread.start()
 
         self.sensor_value = 0.0
-        self.sensor_offset = 0.0
+        self.sensor_offset = self.settings["zero_offset"]
+        self.offset_disp_label.setText(f"{round(self.sensor_offset,3)} mW")
         self.setpoint_error = 0.0
         self.dt_sensor = 1000
         
@@ -239,6 +242,14 @@ class RotatorApp(uiclass, baseclass):
                 elif button == QMessageBox.Cancel:
                     self.offline_mode = True
 
+    def read_settings(self):
+        with open('settings.yaml', 'r') as file:
+            self.settings = yaml.safe_load(file)
+
+    def write_settings(self):
+        with open('settings.yaml', 'w') as file:
+            yaml.dump(self.settings, file)
+
     def connect_to_neasnom(self):
         if "nea_tools" not in sys.modules:
             return
@@ -302,6 +313,9 @@ class RotatorApp(uiclass, baseclass):
 
     def receive_offset(self,value):
         self.sensor_offset = value
+        self.settings["zero_offset"] = self.sensor_offset
+        self.offset_disp_label.setText(f"{round(self.sensor_offset,3)} mW")
+        self.write_settings()
 
     def jogging(self,direction,speed):
         stepsize = speed*self.JogSizeSpinBox.value()
