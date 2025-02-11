@@ -108,22 +108,27 @@ class Worker(QObject):
         self.sensor = sensor
         self.rotator = rotator
 
+        self.avg_offset = 5
+        self.delay_offset = 0.5
+
     @Slot()
-    def measure_zero_offset(self,averages,delay):
+    def measure_zero_offset(self):
+        
         power_measurements = []
         count = 0
-        while count < averages:
+        while count < self.avg_offset:
             power = self.sensor.get_power()
             power_measurements.append(power)
             count+=1
-            time.sleep(delay)
+            time.sleep(self.delay_offset)
             self.progress.emit(f"Zero adjust step: {count}")
-            print(f"Zero adjust step: {count}")
         
         self.progress.emit(f"Zero adjust done: {np.mean(power_measurements)} mW")
         self.send_zero_offset.emit(np.mean(power_measurements))
 
 class RotatorApp(uiclass, baseclass):
+    start_zero_adjust = Signal()
+
     def __init__(self):
         super().__init__()
 
@@ -178,7 +183,8 @@ class RotatorApp(uiclass, baseclass):
             self.connectSNOM.setEnabled(False)
             self.statusbar.showMessage(u"\u26A0 nea_tools module not found, you can only use the rotator.")
 
-        self.zero_adjust_button.clicked.connect(lambda: self.worker.measure_zero_offset(10,0.5))
+        self.zero_adjust_button.clicked.connect(self.adjust_zero)
+        self.start_zero_adjust.connect(self.worker.measure_zero_offset)
         self.worker.progress.connect(self.status_bar_update)
         self.worker.send_zero_offset.connect(self.receive_offset)
 
@@ -288,6 +294,11 @@ class RotatorApp(uiclass, baseclass):
         self.sensor_value = self.powersensor.get_power()-self.sensor_offset
         self.setpoint_error = self.SetPointSpinBox.value() - self.sensor_value
         self.lcdNumber.display(self.sensor_value)
+
+    def adjust_zero(self):
+        self.worker.avg_offset = 10
+        self.worker.delay_offset = 0.5
+        self.start_zero_adjust.emit()
 
     def receive_offset(self,value):
         self.sensor_offset = value
