@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>621</width>
-    <height>523</height>
+    <width>653</width>
+    <height>540</height>
    </rect>
   </property>
   <property name="font">
@@ -88,6 +88,13 @@
             </widget>
            </item>
            <item>
+            <widget class="QPushButton" name="zero_adjust_button">
+             <property name="text">
+              <string>Zero adjust</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QFrame" name="frame_7">
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -99,7 +106,7 @@
               <item>
                <widget class="QPushButton" name="SetPowerPushButton">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="font">
                  <font>
@@ -114,7 +121,7 @@
               <item>
                <widget class="QDoubleSpinBox" name="SetPointSpinBox">
                 <property name="enabled">
-                 <bool>false</bool>
+                 <bool>true</bool>
                 </property>
                 <property name="font">
                  <font>
@@ -539,7 +546,6 @@
              <property name="font">
               <font>
                <pointsize>12</pointsize>
-               <weight>50</weight>
                <italic>false</italic>
                <bold>false</bold>
               </font>
